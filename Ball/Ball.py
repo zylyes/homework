@@ -1,19 +1,19 @@
 # Ball.py
-# 时间：2024/04/13
+# 时间：2024/04/14
 # 作者：周咏霖
 # 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应。
 
-import pygame
-import sys
-from math import degrees, atan2
-  
+import pygame  # 导入pygame库
+import sys  # 导入sys模块
+from math import degrees, atan2  # 从math库中导入degrees和atan2函数
+
 # 初始化 pygame
-pygame.init()
+pygame.init()  # 初始化pygame
 
 # 窗口大小设置
-WIDTH, HEIGHT = 800, 600
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption('弹跳球模拟器')
+WIDTH, HEIGHT = 800, 600  # 设置窗口的宽度和高度
+screen = pygame.display.set_mode((WIDTH, HEIGHT))  # 创建窗口对象
+pygame.display.set_caption('弹跳球模拟器')  # 设置窗口标题为'弹跳球模拟器'
 
 # 定义颜色
 WHITE = (255, 255, 255)  # 白色

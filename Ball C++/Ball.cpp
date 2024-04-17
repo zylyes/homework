@@ -1,3 +1,8 @@
+// Ball.cpp
+// 时间：2024/04/18
+// 作者：周咏霖
+// 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应，且可以通过方向键控制小球。
+
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -40,7 +45,7 @@ int main(int argc, char* args[]) {
     SDL_Window* window = SDL_CreateWindow("Ball Simulation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    Ball ball = {400, 300, 0, 0, 15, {255, 0, 0}};
+    Ball ball = {400, 300, 50, -55, 15, {255, 0, 0}}; // 添加初始速度 vx = 50, vy = -55
     Box box = {100, 100, 600, 400, {0, 0, 0}};
 
     bool quit = false;

@@ -92,7 +92,7 @@ python Ball.py
 
   运行演示：
 
-  ![image](https://github.com/zylyes/homework/blob/main/Ball%20python/Ball.gif)
+  ![image](https://github.com/zylyes/homework/blob/main/Ball%20python/Ball1.gif)
 
 **退出模拟器**：当你想退出模拟器时，简单地关闭图形界面窗口即可。
 
@@ -124,7 +124,7 @@ python Ball.py
 
   运行演示：
 
-
+  ![image](https://github.com/zylyes/homework/blob/main/Ball%20C%2B%2B/Ball2.gif)
 
 使用键盘的方向键来控制小球的移动。
   - **↑ 键**：增加向上的速度。
@@ -140,7 +140,7 @@ python Ball.py
 
   运行演示：
 
-  
+  ![image](https://github.com/zylyes/homework/blob/main/Ball%20C%2B%2B/Ball3.gif)
 
 ## 文件说明
 

@@ -65,7 +65,7 @@ air_resistance_coeff = 0.001   空气阻力系数
 
 运行演示：
 
-![image](https://github.com/zylyes/homework/blob/main/Ball(python)/Ball.gif)
+![image](https://github.com/zylyes/homework/blob/main/Ball%20python/Ball.gif)
 
 3. **退出模拟器**：当你想退出模拟器时，简单地关闭图形界面窗口即可。
 

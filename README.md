@@ -60,6 +60,7 @@ pip install pygame
 
    运行演示：
 
+![Ball](https://github.com/zylyes/homework/assets/166624552/52770342-ac57-47d3-91ec-7f40d38e7ca3)
 
 
 3. **退出模拟器**：当你想退出模拟器时，简单地关闭图形界面窗口即可。

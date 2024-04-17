@@ -63,7 +63,7 @@ pip install pygame
 使用g++进行编译。确保在编译命令中包含SDL2的链接器选项：
 
 ```bash
-g++ -o BallSimulation Ball.cpp `sdl2-config --cflags --libs`
+g++.exe -g Ball.cpp -o Ball.exe -lmingw32 -lSDL2main -lSDL2 -mwindows
 ```
 
 ## 使用说明
@@ -101,7 +101,7 @@ python Ball.py
 在编译完成后，运行生成的可执行文件：
 
 ```bash
-./BallSimulation
+./Ball.exe
 ```
 
 **使用说明**

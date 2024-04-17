@@ -1,6 +1,8 @@
 // Ball.cpp
 // 时间：2024/04/18
 // 作者：周咏霖
+// 编译：g++.exe -g Ball.cpp -o Ball.exe -lmingw32 -lSDL2main -lSDL2 -mwindows
+// 运行：./Ball.exe
 // 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应，且可以通过方向键控制小球。
 
 #include <SDL2/SDL.h>   // 包含SDL库的头文件

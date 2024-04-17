@@ -51,16 +51,19 @@ pip install pygame
 
 例子：
 
-   参数：
+参数：
 
-   gravity = 0.1   重力加速度
-   energy_loss_coeff = 0.8   反弹能量损失系数
-   friction_coeff = 0.02   摩擦系数
-   air_resistance_coeff = 0.001   空气阻力系数
+gravity = 0.1   重力加速度
 
-   运行演示：
+energy_loss_coeff = 0.8   反弹能量损失系数
 
-![Ball](https://github.com/zylyes/homework/assets/166624552/c3909bd9-31de-4e36-a66b-59bbd242f867)
+friction_coeff = 0.02   摩擦系数
+
+air_resistance_coeff = 0.001   空气阻力系数
+
+运行演示：
+
+![image](https://github.com/ZhengYaWei1992/ZWProgressView/blob/master/Untitled3.gif)
 
 3. **退出模拟器**：当你想退出模拟器时，简单地关闭图形界面窗口即可。
 

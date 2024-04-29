@@ -3,7 +3,7 @@
 // 作者：周咏霖
 // 编译：g++.exe -g Ball1.cpp -o Ball1.exe -lmingw32 -lSDL2main -lSDL2 -mwindows
 // 运行：./Ball1.exe
-// 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应，且可以通过方向键控制小球。
+// 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应。
 
 #include <SDL2/SDL.h>
 #include <iostream>

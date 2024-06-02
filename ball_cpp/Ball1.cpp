@@ -5,25 +5,25 @@
 // 运行：./Ball1.exe
 // 功能：一个简单的弹跳球模拟器，让小球在一个边界框内自由移动，并模拟了重力、空气阻力、摩擦力等物理效应。
 
-#include <SDL2/SDL.h>
-#include <iostream>
+#include <SDL2/SDL.h>  // 引入SDL库
+#include <iostream>  // 引入输入输出流库
 
 // 小球类（Ball），用于表示和控制小球的行为和属性
-class Ball {
+class Ball {  // 小球类，用于表示和控制小球的行为和属性
 public:
     // 构造函数，用于初始化小球对象
-    Ball(float x, float y, float vx, float vy, float radius, SDL_Color color)
-    : x(x), y(y), vx(vx), vy(vy), radius(radius), color(color) {}
+    Ball(float x, float y, float vx, float vy, float radius, SDL_Color color)  // 初始化小球的位置、速度、半径和颜色
+    : x(x), y(y), vx(vx), vy(vy), radius(radius), color(color) {}  // 使用成员初始化列表初始化小球的属性
 
     // 在渲染器上绘制小球的函数
     void draw(SDL_Renderer* renderer) {
-        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
-        for (int w = 0; w < radius * 2; w++) {
-            for (int h = 0; h < radius * 2; h++) {
-                int dx = radius - w;
-                int dy = radius - h;
-                if (dx * dx + dy * dy <= radius * radius) {
-                    SDL_RenderDrawPoint(renderer, x + dx, y + dy);
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);  // 设置绘制颜色
+        for (int w = 0; w < radius * 2; w++) {   // 遍历小球的宽度
+            for (int h = 0; h < radius * 2; h++) {  // 遍历小球的高度
+                int dx = radius - w;  // 计算x方向的偏移量
+                int dy = radius - h;  // 计算y方向的偏移量
+                if (dx * dx + dy * dy <= radius * radius) {  // 判断是否在小球内部
+                    SDL_RenderDrawPoint(renderer, x + dx, y + dy);  // 绘制小球内部的点
                 }
             }
         }
@@ -41,24 +41,24 @@ public:
     // 碰撞检测和反应
     void checkCollision(const SDL_Rect& box) {
         // 右边界
-        if (x + radius > box.x + box.w) {
-            x = box.x + box.w - radius;
+        if (x + radius > box.x + box.w) {  // 判断小球是否碰到右边界
+            x = box.x + box.w - radius;  // 修正位置
             vx *= -0.8f;  // 反弹并损失一些能量
         }
         // 左边界
-        if (x - radius < box.x) {
-            x = box.x + radius;
+        if (x - radius < box.x) {  // 判断小球是否碰到左边界
+            x = box.x + radius;  // 修正位置
             vx *= -0.8f;  // 反弹并损失一些能量
         }
         // 下边界
-        if (y + radius > box.y + box.h) {
-            y = box.y + box.h - radius;
+        if (y + radius > box.y + box.h) {  // 判断小球是否碰到下边界
+            y = box.y + box.h - radius;  // 修正位置
             vy *= -0.8f;  // 反弹并损失一些能量
             vx *= 0.98f;  // 添加一些摩擦力
         }
         // 上边界
-        if (y - radius < box.y) {
-            y = box.y + radius;
+        if (y - radius < box.y) {  // 判断小球是否碰到上边界
+            y = box.y + radius;  // 修正位置
             vy *= -0.8f;  // 反弹并损失一些能量
         }
     }
@@ -71,15 +71,15 @@ public:
 };
 
 // 框类（Box），用于表示和控制框的行为和属性
-class Box {
+class Box {  // 框类，用于表示和控制框的行为和属性
 public:
-    Box(float x, float y, float width, float height, SDL_Color color)
-    : rectangle({static_cast<int>(x), static_cast<int>(y), static_cast<int>(width), static_cast<int>(height)}), color(color) {}
+    Box(float x, float y, float width, float height, SDL_Color color)  // 初始化框的位置、尺寸和颜色
+    : rectangle({static_cast<int>(x), static_cast<int>(y), static_cast<int>(width), static_cast<int>(height)}), color(color) {}  // 使用成员初始化列表初始化框的属性
 
     // 绘制边界框
-    void draw(SDL_Renderer* renderer) {
-        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
-        SDL_RenderDrawRect(renderer, &rectangle);
+    void draw(SDL_Renderer* renderer) {  // 在渲染器上绘制边界框
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);  // 设置绘制颜色
+        SDL_RenderDrawRect(renderer, &rectangle);  // 绘制边界框
     }
 
     // 框的公共属性
@@ -87,26 +87,26 @@ public:
     SDL_Color color; // 框颜色
 };
 
-int main(int argc, char* args[]) {
+int main(int argc, char* args[]) {  // 主函数
     // 初始化SDL视频子系统
     SDL_Init(SDL_INIT_VIDEO);
 
     // 创建窗口和渲染器
-    SDL_Window* window = SDL_CreateWindow("Ball Simulation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_Window* window = SDL_CreateWindow("Ball Simulation", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);  // 创建窗口
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);  // 创建渲染器
 
     // 初始化小球和框的对象
     Ball ball(400.0f, 300.0f, 50.0f, 30.0f, 15.0f, {255, 0, 0}); // 初始位置、速度、半径和颜色
     Box box(100.0f, 100.0f, 600.0f, 400.0f, {0, 0, 0}); // 初始位置、尺寸和颜色
 
     // 标志主循环是否应该退出
-    bool quit = false;
-    SDL_Event e;
+    bool quit = false;  // 标志主循环是否应该退出
+    SDL_Event e;  // 事件变量
 
-    while (!quit) {
+    while (!quit) {  // 主循环
         // 处理事件队列
-        while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
+        while (SDL_PollEvent(&e) != 0) {  // 处理事件队列
+            if (e.type == SDL_QUIT) {  // 用户请求退出
                 quit = true; // 用户请求退出
             }
             // 额外的事件处理可以放在这里
@@ -119,12 +119,12 @@ int main(int argc, char* args[]) {
         ball.checkCollision(box.rectangle);
 
         // 清空屏幕
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_RenderClear(renderer);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);  // 设置背景颜色
+        SDL_RenderClear(renderer);  // 清空屏幕
 
         // 绘制框和小球
-        box.draw(renderer);
-        ball.draw(renderer);
+        box.draw(renderer);  // 绘制框
+        ball.draw(renderer);  // 绘制小球
 
         // 交换前后缓冲区，更新窗口
         SDL_RenderPresent(renderer);
@@ -134,8 +134,8 @@ int main(int argc, char* args[]) {
     }
 
     // 销毁资源并退出SDL
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    return 0;
+    SDL_DestroyRenderer(renderer);  // 销毁渲染器
+    SDL_DestroyWindow(window);  // 销毁窗口
+    SDL_Quit();  // 退出SDL
+    return 0;  // 返回0表示正常退出
 }

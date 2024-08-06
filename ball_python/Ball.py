@@ -96,16 +96,16 @@ class Box:
 clock = pygame.time.Clock()  # 创建时钟对象
 
 # 参数配置
-gravity = 0.1  # 重力加速度
-energy_loss_coeff = 0.8  # 反弹能量损失系数
-friction_coeff = 0.02  # 摩擦系数
-air_resistance_coeff = 0.001  # 空气阻力系数
+gravity = 0.09  # 重力加速度
+energy_loss_coeff = 0.98  # 反弹能量损失系数
+friction_coeff = 0.00  # 摩擦系数
+air_resistance_coeff = 0.0001  # 空气阻力系数
 min_vertical_speed = 0.51  # 垂直方向停止的最小速度
 min_horizontal_speed = 0.01  # 水平方向停止的最小速度
 
 # 创建球和边界框
 ball = Ball(
-    WIDTH // 2, HEIGHT // 2, 13, [40, -55]
+    WIDTH // 2, HEIGHT // 2, 13, [12, -17]
 )  # 创建小球对象，初始位置在屏幕中心，半径为10，速度为[40, -55]
 box = Box(
     (WIDTH - 600) // 2, (HEIGHT - 400) // 2, 600, 400

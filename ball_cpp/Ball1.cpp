@@ -43,23 +43,23 @@ public:
         // 右边界
         if (x + radius > box.x + box.w) {  // 判断小球是否碰到右边界
             x = box.x + box.w - radius;  // 修正位置
-            vx *= -0.8f;  // 反弹并损失一些能量
+            vx *= -0.9f;  // 反弹并损失一些能量
         }
         // 左边界
         if (x - radius < box.x) {  // 判断小球是否碰到左边界
             x = box.x + radius;  // 修正位置
-            vx *= -0.8f;  // 反弹并损失一些能量
+            vx *= -0.9f;  // 反弹并损失一些能量
         }
         // 下边界
         if (y + radius > box.y + box.h) {  // 判断小球是否碰到下边界
             y = box.y + box.h - radius;  // 修正位置
-            vy *= -0.8f;  // 反弹并损失一些能量
+            vy *= -0.9f;  // 反弹并损失一些能量
             vx *= 0.98f;  // 添加一些摩擦力
         }
         // 上边界
         if (y - radius < box.y) {  // 判断小球是否碰到上边界
             y = box.y + radius;  // 修正位置
-            vy *= -0.8f;  // 反弹并损失一些能量
+            vy *= -0.9f;  // 反弹并损失一些能量
         }
     }
 
@@ -96,7 +96,7 @@ int main(int argc, char* args[]) {  // 主函数
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);  // 创建渲染器
 
     // 初始化小球和框的对象
-    Ball ball(400.0f, 300.0f, 50.0f, 30.0f, 15.0f, {255, 0, 0}); // 初始位置、速度、半径和颜色
+    Ball ball(200.0f, 200.0f, 15.0f, 8.0f, 15.0f, {255, 0, 0}); // 初始位置、速度、半径和颜色
     Box box(100.0f, 100.0f, 600.0f, 400.0f, {0, 0, 0}); // 初始位置、尺寸和颜色
 
     // 标志主循环是否应该退出
